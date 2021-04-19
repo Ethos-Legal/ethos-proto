@@ -12,22 +12,5 @@ import org.springframework.stereotype.Service;
 
 public class UserDetailServiceIMPL implements UserDetailsService {
     @Autowired
-    ClientPosterRepository clientPosterRepository;
 
-    @Autowired
-    JobSeekerRepository jobSeekerRepository;
-
-    @Override
-    public UserDetails loadClientByUserName(String username) throws UsernameNotFoundException{
-        return clientPosterRepository.findByUsername(username);
-    }
-    @Override
-    public UserDetails loadJobSeekerByUsername(String username) throws UsernameNotFoundException {
-        return jobSeekerRepository.findByUsername(username);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
 }
