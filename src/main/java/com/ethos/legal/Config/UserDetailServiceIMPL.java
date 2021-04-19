@@ -1,5 +1,6 @@
 package com.ethos.legal.Config;
 
+import com.ethos.legal.Models.App_User_Repository;
 import com.ethos.legal.Models.ClientPosterRepository;
 import com.ethos.legal.Models.JobSeekerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,5 +13,10 @@ import org.springframework.stereotype.Service;
 
 public class UserDetailServiceIMPL implements UserDetailsService {
     @Autowired
+    App_User_Repository app_user_repository;
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return app_user_repository.findByUserName(username);
+    }
 }
