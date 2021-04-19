@@ -15,13 +15,15 @@ import java.text.SimpleDateFormat;
             super();
         }
 
-        String email;
-        String password;
         String name;
         String lawFirm;
         int phoneNumber;
         String address;
         String linkedIn;
+
+        @ManyToOne
+        App_User app_user;
+
 
         @OneToMany
         ActiveJobs activeJobs;
@@ -58,22 +60,6 @@ import java.text.SimpleDateFormat;
 
         public void setId(long id) {
             this.id = id;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
         }
 
         public String getName() {
@@ -116,6 +102,14 @@ import java.text.SimpleDateFormat;
             this.linkedIn = linkedIn;
         }
 
+        public App_User getApp_user() {
+            return app_user;
+        }
+
+        public void setApp_user(App_User app_user) {
+            this.app_user = app_user;
+        }
+
         public ActiveJobs getActiveJobs() {
             return activeJobs;
         }
@@ -131,11 +125,4 @@ import java.text.SimpleDateFormat;
         public void setJobPost(JobPost jobPost) {
             this.jobPost = jobPost;
         }
-
-
-
-
-
-
-
-}
+    }
