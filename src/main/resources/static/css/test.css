@@ -1,0 +1,12 @@
+body {
+    width: 1500;
+    background-color: blue;
+}
+
+#signInForm {
+    display: none;
+}
+
+#signInForm2 {
+    display: none;
+}
