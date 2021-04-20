@@ -22,4 +22,5 @@ public class LandingPageController {
 //        m.addAttribute("principal", principal);
         return "Landing.html";
     }
+
 }

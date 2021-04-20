@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+<!--    <img src="/images/GarrhetMorgan.png">-->
+    <link href="/css/reg.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
+
+        </a>
+    </div>
+</nav>
+<div class="out-registration">
+    <div class="registration">
+
+        <form class="row g-3" action="/newUser" method="POST">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input name="email"  type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input name="lawFirmAddress" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+             <div class="col-md-6">
+                 <label for="inputName" class="form-label"></label>
+                 <input name="name" type="text" class="form-control" id="inputName" placeholder="1234 Main St">
+             </div>
+            <div class="col-md-6">
+                <label for="inputPh" class="form-label">Business Phone number</label>
+                <input name="phoneNumber" type="text" class="form-control" id="inputPh">
+            </div>
+            <div class="col-md-6">
+                <label for="inputLinked" class="form-label">LinkedIN</label>
+                <input name="linkedIn" type="text" class="form-control" id="inputLinked">
+            </div>
+           s<div class="col-md-6">
+            <label for="inputAge" class="form-label">Age</label>
+            <input name="age" type="text" class="form-control" id="inputAge">
+            </div>
+           <div class="col-md-6">
+               <label for="inputLawFirm" class="form-label">Law-Firm</label>
+               <input name="lawFirm" type="text" class="form-control" id="inputLawFirm">  <div class="col-12">
+           </div>
+                <label for="inputCred" class="form-label">credentials</label>                                         <div class="input-group">
+
+                <input name="credentials" type="text" class="form-control" id="inputCred" placeholder="A.C.T LAW CERT .etc">     <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+
+            </div>                                                                                                   </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Job Seekers
+                    </label>
+                </div>
+                <div class="form-check1">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                    <label class="form-check-label" for="autoSizingCheck2">
+                        Job Posters
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="reg-butt">
+                <button  type="submit" class="btn btn-primary">Sign Up!</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

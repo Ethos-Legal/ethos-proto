@@ -15,7 +15,7 @@ public class App_User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    String username;
+    String email;
     String password;
     boolean isClientPoster;
     boolean isJobSeeker;
@@ -34,7 +34,20 @@ public class App_User implements UserDetails {
     List<ActiveJobs> activeJobs = new ArrayList<>();
     @OneToMany
     List<JobPost> jobPost = new ArrayList<>();
+    public App_User(){} // default constructor
+    public App_User( String email, String password, String name, String phoneNumber, String linkedInUrl, String lawFirm, String lawFirmAddress, int age, String credentials, String description) {
 
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.linkedInUrl = linkedInUrl;
+        this.lawFirm = lawFirm;
+        this.lawFirmAddress = lawFirmAddress;
+        this.age = age;
+        this.credentials = credentials;
+        this.description = description;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -79,8 +92,8 @@ public class App_User implements UserDetails {
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPassword(String password) {

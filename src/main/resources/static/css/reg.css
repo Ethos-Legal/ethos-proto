@@ -1,0 +1,40 @@
+
+
+.out-registration{
+    background-color: rgba(241, 241, 241, 0.9);
+    width: 750px;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+.registration{
+    width: 600px;
+    height: 500px;
+    margin-top: 10%;
+    margin-left: 12%;
+
+
+}
+
+.form-check1{
+    margin-left: 150px;
+    margin-top: -19px;
+    margin-left: 300px;
+}
+
+.navbar{
+    background-color: rgb(207, 206, 206);
+    color: black;
+}
+body{
+    background-image: url("/images/Seattle.jpg");
+    height: 00%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-brand{
+    color: black;
+
+}
