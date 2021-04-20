@@ -1,11 +1,10 @@
 package com.ethos.legal.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class ActiveJobs {
@@ -17,13 +16,19 @@ public class ActiveJobs {
         super();
     }
 
-    JobSeeker jobSeeker = new JobSeeker();
+
     double pricePerHour;
     float accruedHours;
     //    Date dateToComplete = new Date();
     SimpleDateFormat dateToComplete = new SimpleDateFormat();
     SimpleDateFormat datePosted = new SimpleDateFormat();
-    Notes notes = new Notes();
+
+
+
+
+    @OneToMany
+    List<Notes> notes = new ArrayList<>();
+
 
     @Override
     public int hashCode() {
@@ -58,13 +63,7 @@ public class ActiveJobs {
         this.id = id;
     }
 
-    public JobSeeker getJobSeeker() {
-        return jobSeeker;
-    }
 
-    public void setJobSeeker(JobSeeker jobSeeker) {
-        this.jobSeeker = jobSeeker;
-    }
 
     public double getPricePerHour() {
         return pricePerHour;
@@ -98,13 +97,6 @@ public class ActiveJobs {
         this.datePosted = datePosted;
     }
 
-    public Notes getNotes() {
-        return notes;
-    }
-
-    public void setNotes(Notes notes) {
-        this.notes = notes;
-    }
 
 
 

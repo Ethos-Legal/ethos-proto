@@ -20,7 +20,7 @@ public class Bid {
     }
     @ManyToOne
     JobPost jobPost;
-    JobSeeker jobSeeker;
+
 
 
     @Override
@@ -76,13 +76,7 @@ public class Bid {
         this.jobPost = jobPost;
     }
 
-    public JobSeeker getJobSeeker() {
-        return jobSeeker;
-    }
 
-    public void setJobSeeker(JobSeeker jobSeeker) {
-        this.jobSeeker = jobSeeker;
-    }
 
 
 
