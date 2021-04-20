@@ -2,9 +2,11 @@ package com.ethos.legal.Models;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
-    @Entity
+@Entity
     public class JobPost {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +27,8 @@ import java.text.SimpleDateFormat;
         String serviceType;
 
         @OneToMany
-        Bid bid;
+        List<Bid> bid = new ArrayList<>();
+
 
 
         @Override
@@ -97,13 +100,7 @@ import java.text.SimpleDateFormat;
             this.serviceType = serviceType;
         }
 
-        public Bid getBid() {
-            return bid;
-        }
 
-        public void setBid(Bid bid) {
-            this.bid = bid;
-        }
 
 
 
