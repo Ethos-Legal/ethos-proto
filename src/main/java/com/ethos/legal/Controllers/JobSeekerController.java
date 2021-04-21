@@ -23,6 +23,6 @@ public class JobSeekerController {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
-        return "jobPostBoard.html";
+        return "jobSeeker.html";
     }
 }

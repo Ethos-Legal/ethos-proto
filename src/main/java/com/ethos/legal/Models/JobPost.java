@@ -17,10 +17,18 @@ import java.util.List;
         }
 
         public JobPost() {
-            super();
+
         }
 
-        String jobTitle;
+    public JobPost(String jobTitle, SimpleDateFormat dateToComplete, SimpleDateFormat datePosted, String description, String serviceType) {
+        this.jobTitle = jobTitle;
+        this.dateToComplete = dateToComplete;
+        this.datePosted = datePosted;
+        this.description = description;
+        this.serviceType = serviceType;
+    }
+
+    String jobTitle;
         SimpleDateFormat dateToComplete = new SimpleDateFormat();
         SimpleDateFormat datePosted = new SimpleDateFormat();
         String description;
