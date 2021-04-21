@@ -1,0 +1,23 @@
+.card{
+    display: inline-block;
+    width: 300px;
+    /* display: table-row; */
+    margin-left: 25px;
+
+}
+
+.sect
+    {
+        position: absolute;
+        top: 30%;
+        left: 16%;
+
+    }
+
+
+img{
+    height: 295px;
+
+
+}
+
