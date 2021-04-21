@@ -11,7 +11,6 @@ public class HomeController {
 
     @GetMapping("/home")
     public String homePage(Principal principal, Model m){
-        System.out.println(principal);
         m.addAttribute("principal", principal);
 
         return "home.html";
