@@ -14,6 +14,7 @@ public class LandingPageController {
 
     @GetMapping("/")
     public RedirectView startUp(Principal principal, Model m) {
+
         if (principal != null){
             m.addAttribute("principal", principal);
             return new RedirectView("/home");
@@ -27,5 +28,4 @@ public class LandingPageController {
         m.addAttribute("principal", principal);
         return "landing.html";
     }
-
 }
