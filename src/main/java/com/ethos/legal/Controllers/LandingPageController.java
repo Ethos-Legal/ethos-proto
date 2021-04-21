@@ -13,14 +13,19 @@ import java.security.Principal;
 public class LandingPageController {
 
     @GetMapping("/")
-    public RedirectView startUp() {
+    public RedirectView startUp(Principal principal, Model m) {
+        if (principal != null){
+            m.addAttribute("principal", principal);
+            return new RedirectView("/home");
+        }
+
         return new RedirectView("/login");
     }
 
     @GetMapping("/login")
-    public String landingPage(){
-//        m.addAttribute("principal", principal);
-        return "Landing.html";
+    public String landingPage(Principal principal, Model m){
+        m.addAttribute("principal", principal);
+        return "landing.html";
     }
 
 }
