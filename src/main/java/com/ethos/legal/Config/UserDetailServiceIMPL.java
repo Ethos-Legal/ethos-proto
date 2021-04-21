@@ -15,6 +15,6 @@ public class UserDetailServiceIMPL implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return app_user_repository.findByUsername(username);
+        return app_user_repository.findByEmail(username);
     }
 }

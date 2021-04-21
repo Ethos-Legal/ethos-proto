@@ -1,6 +1,8 @@
+
+
 body {
     width: 1500;
-    background-color: blue;
+
 }
 
 #signInForm {
@@ -12,29 +14,30 @@ body {
 }
 
 .mid-pic{
-    background-image: url("assets/ethos.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+      background-image: url("/images/ethos.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 }
 
 .mid-pic{
     position: absolute;
+
     top: 40%;
     left: 36%;
     margin-top: -200px;
     margin-right: 80px;
     width: 600px;
     height: 330px;
-    /* background-color: rgb(169, 169, 179); */
-    /* border-radius: 2%; */
+    background-color: rgb(169, 169, 179, .07%);
+    border-radius: 2%;
 
 }
 .buttons{
     position: absolute;
-    top: 40%;
-    left: 43%;
+    top: 28%;
+    left: 37%;
     margin-top: 330px;
-    margin-right: -40px;
+
     width: 600px;
     height: 330px;
 
@@ -86,3 +89,4 @@ body {
     padding-top: 10px;
     background-color: rgba(205, 207, 214, 0.164);
 }
+
