@@ -1,6 +1,7 @@
 package com.ethos.legal.Models;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 public class Bid {
@@ -8,9 +9,8 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     String pricePerHour;
-    String datePosted;
-
-
+    Timestamp datePosted;
+    String jobSeeker;
 
     public long getId() {
         return id;
@@ -22,9 +22,10 @@ public class Bid {
     @ManyToOne
     JobPost jobPost;
 
-    public Bid(String pricePerHour) {
+    public Bid(String pricePerHour, String jobSeeker, Timestamp datePosted) {
         this.pricePerHour = pricePerHour;
-//        this.datePosted = datePosted;
+        this.jobSeeker = jobSeeker;
+        this.datePosted = datePosted;
     }
 
     @Override
@@ -64,11 +65,11 @@ public class Bid {
         this.pricePerHour = pricePerHour;
     }
 
-    public String getDatePosted() {
+    public Timestamp getDatePosted() {
         return datePosted;
     }
 
-    public void setDatePosted(String datePosted) {
+    public void setDatePosted(Timestamp datePosted) {
         this.datePosted = datePosted;
     }
 

@@ -10,6 +10,7 @@ import java.util.List;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         public long id;
+        public boolean isActive= false;
 
         public long getId() {
             return id;
@@ -25,6 +26,7 @@ import java.util.List;
         this.datePosted = datePosted;
         this.description = description;
         this.serviceType = serviceType;
+
     }
 
     String jobTitle;
@@ -107,10 +109,21 @@ import java.util.List;
             this.serviceType = serviceType;
         }
 
+        public boolean isActive() {
+            return isActive;
+        }
 
+        public void setActive(boolean active) {
+            isActive = active;
+        }
 
+        public List<Bid> getBid() {
+            return bid;
+        }
 
-
-    }
+        public void setBid(List<Bid> bid) {
+            this.bid = bid;
+        }
+}
 
 

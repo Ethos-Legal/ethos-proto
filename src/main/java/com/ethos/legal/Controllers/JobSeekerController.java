@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.security.Principal;
 
 @Controller
-public class JobPosterController {
+public class JobSeekerController {
 
     @Autowired
     App_User_Repository app_user_repository;
