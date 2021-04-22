@@ -24,7 +24,7 @@ public class PostBoardController {
     public String jobPostBoard(Principal principal, Model m){
 
         ArrayList<JobPost> jobPostList = (ArrayList<JobPost>)jobPostRepository.findAll();
-        System.out.println(jobPostList);
+        System.out.println(jobPostList.toString());
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         m.addAttribute("Principal", principal);
         m.addAttribute("appUser",appUser);
