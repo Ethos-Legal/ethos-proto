@@ -1,7 +1,6 @@
 package com.ethos.legal.Models;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +16,20 @@ import java.util.List;
         }
 
         public JobPost() {
-            super();
+
         }
 
-        String jobTitle;
-        SimpleDateFormat dateToComplete = new SimpleDateFormat();
-        SimpleDateFormat datePosted = new SimpleDateFormat();
+    public JobPost(String jobTitle, String dateToComplete, String datePosted, String description, String serviceType) {
+        this.jobTitle = jobTitle;
+        this.dateToComplete = dateToComplete;
+        this.datePosted = datePosted;
+        this.description = description;
+        this.serviceType = serviceType;
+    }
+
+    String jobTitle;
+        String dateToComplete;
+        String datePosted;
         String description;
         String serviceType;
 
@@ -68,19 +75,19 @@ import java.util.List;
             this.jobTitle = jobTitle;
         }
 
-        public SimpleDateFormat getDateToComplete() {
+        public String getDateToComplete() {
             return dateToComplete;
         }
 
-        public void setDateToComplete(SimpleDateFormat dateToComplete) {
+        public void setDateToComplete(String dateToComplete) {
             this.dateToComplete = dateToComplete;
         }
 
-        public SimpleDateFormat getDatePosted() {
+        public String getDatePosted() {
             return datePosted;
         }
 
-        public void setDatePosted(SimpleDateFormat datePosted) {
+        public void setDatePosted(String datePosted) {
             this.datePosted = datePosted;
         }
 

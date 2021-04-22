@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.security.Principal;
 
 @Controller
-public class JobSeekerController {
+public class JobPosterController {
 
     @Autowired
     App_User_Repository app_user_repository;
@@ -23,6 +23,6 @@ public class JobSeekerController {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
-        return "jobPostBoard.html";
+        return "jobSeeker.html";
     }
 }
