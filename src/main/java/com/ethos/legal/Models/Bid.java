@@ -1,27 +1,31 @@
 package com.ethos.legal.Models;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 
 @Entity
 public class Bid {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
-    double pricePerHour;
-    SimpleDateFormat datePosted = new SimpleDateFormat();
+    String pricePerHour;
+    String datePosted;
+
+
 
     public long getId() {
         return id;
     }
 
     public Bid() {
-        super();
+
     }
     @ManyToOne
     JobPost jobPost;
 
-
+    public Bid(String pricePerHour) {
+        this.pricePerHour = pricePerHour;
+//        this.datePosted = datePosted;
+    }
 
     @Override
     public int hashCode() {
@@ -52,19 +56,19 @@ public class Bid {
         this.id = id;
     }
 
-    public double getPricePerHour() {
+    public String getPricePerHour() {
         return pricePerHour;
     }
 
-    public void setPricePerHour(double pricePerHour) {
+    public void setPricePerHour(String pricePerHour) {
         this.pricePerHour = pricePerHour;
     }
 
-    public SimpleDateFormat getDatePosted() {
+    public String getDatePosted() {
         return datePosted;
     }
 
-    public void setDatePosted(SimpleDateFormat datePosted) {
+    public void setDatePosted(String datePosted) {
         this.datePosted = datePosted;
     }
 

@@ -62,24 +62,29 @@
                         <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
                         <div class="div-posting">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text Some quick example text to build on the card
-                                title and make up the bulk of the card's content.n the card title and make up the bulk of
-                                the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
+                            <p class="card-text">
+                            <div th:each="data : ${jobPostList}">
+
+                                <h4 th:text="${data.jobTitle}"></h4>
+                                <p th:text="'DateToComplete: ' + ${data.dateToComplete} + ' songs'"></p>
+                                <p th:text="'DatePosted: ' + ${data.datePosted} + ' min'"></p>
+                                <p th:text="'Description: ' + ${data.description} + ' min'"></p>
+                            <p th:text="'ServiceType: ' + ${data.serviceType} + ' min'"></p>
+
+
+                            </div>
                             </p>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <div  class="input-group">
-                                <input type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
-                                       aria-describedby="button-addon2" />
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                                    BId
-                                </button>
-                            </div>
+                            <form action="/postBid" method="POST">
+                                <label for="inputPassword2" class="sr-only">Password</label>
+                                <div  class="input-group">
+                                    <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
+                                           aria-describedby="button-addon2" />
+                                    <input type="submit">
+                                </div>
+                            </form>
+
                         </div>
 
         </section>
