@@ -81,9 +81,11 @@ public class Bid {
         this.jobPost = jobPost;
     }
 
+    public String getJobSeeker() {
+        return jobSeeker;
+    }
 
-
-
-
-
+    public void setJobSeeker(String jobSeeker) {
+        this.jobSeeker = jobSeeker;
+    }
 }
