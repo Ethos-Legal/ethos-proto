@@ -26,3 +26,5 @@ public class JobSeekerController {
         return "jobSeeker.html";
     }
 }
+
+

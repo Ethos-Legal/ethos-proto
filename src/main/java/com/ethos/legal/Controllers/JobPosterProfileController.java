@@ -1,6 +1,5 @@
 package com.ethos.legal.Controllers;
 
-
 import com.ethos.legal.Models.App_User;
 import com.ethos.legal.Models.App_User_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,8 @@ public class JobPosterProfileController {
     @Autowired
     App_User_Repository app_user_repository;
 
-    @GetMapping("/posterProfile")
-    public String jobPoster(Principal principal, Model m) {
+    @GetMapping("/JobPosterProfile")
+    public String JobPosterProfile(Principal principal, Model m) {
 
 
 
