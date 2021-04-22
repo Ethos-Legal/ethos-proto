@@ -80,7 +80,7 @@
                             <form action="/postBid" method="POST">
                                 <label for="inputPassword2" class="sr-only">Password</label>
                                 <div  class="input-group">
-<!--                                    <input type="hidden" name="jobId" th:text="${data.id}" >-->
+                                    <input type="hidden" name="jobId" th:value="${data.id}" >
                                     <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
                                            aria-describedby="button-addon2" />
                                     <input type="submit">

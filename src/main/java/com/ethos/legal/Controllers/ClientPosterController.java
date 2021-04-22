@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -51,14 +51,14 @@ public class ClientPosterController {
     }
 
     @PostMapping("/postBid")
-    public RedirectView bidPoster(String pricePerHour, String jobId,Principal principal){
-//        Date date = new Date();
-//        Timestamp ts = new Timestamp(date.getTime());
-        System.out.println("this is the is" + jobId);
-        Bid bid = new Bid(pricePerHour, principal.getName());
+    public RedirectView bidPoster(String pricePerHour, String jobId, Principal principal){
+        Date date = new Date();
+        Timestamp ts = new Timestamp(date.getTime());
 
+        Bid bid = new Bid(pricePerHour, principal.getName(), ts);
         bidRepository.save(bid);
-        JobPost jobPost = jobPostRepository.findById(jobId);
+        long longJobId = Long.parseLong(jobId);
+        JobPost jobPost = jobPostRepository.findById(longJobId);
         jobPost.getBid().add(bid);
         jobPostRepository.save(jobPost);
         return new RedirectView("/jobs");
