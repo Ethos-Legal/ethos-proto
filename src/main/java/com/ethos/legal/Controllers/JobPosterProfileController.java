@@ -24,7 +24,7 @@ public class JobPosterProfileController {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
-        return "JobPosterProfile.html";
+        return "jobPosterProfile.html";
     }
 
 }

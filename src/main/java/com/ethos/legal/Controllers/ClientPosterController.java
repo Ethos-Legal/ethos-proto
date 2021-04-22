@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.security.Timestamp;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -37,20 +38,29 @@ public class ClientPosterController {
     }
 
     @PostMapping("/makePost")
-    public RedirectView makePost(String jobTitle, String dateToComplete, String datePosted, String description, String serviceType){
+    public RedirectView makePost(String jobTitle, String dateToComplete, String datePosted, String description, String serviceType, Principal principal){
 //        System.out.println("dateP: " + datePosted.format(datePosted));
         JobPost jobPost = new JobPost(jobTitle,dateToComplete, datePosted, description, serviceType);
         jobPostRepository.save(jobPost);
+        App_User app_user = app_user_repository.findByEmail(principal.getName());
+        System.out.println(principal.getName());
+        app_user.getJobPost().add(jobPost);
+        app_user_repository.save(app_user);
         System.out.println(dateToComplete);
         return new RedirectView("/jobs");
     }
 
     @PostMapping("/postBid")
-    public RedirectView bidPoster(String pricePerHour){
-        Bid bid = new Bid(pricePerHour);
+    public RedirectView bidPoster(String pricePerHour, String jobId,Principal principal){
+//        Date date = new Date();
+//        Timestamp ts = new Timestamp(date.getTime());
+        System.out.println("this is the is" + jobId);
+        Bid bid = new Bid(pricePerHour, principal.getName());
 
         bidRepository.save(bid);
-        System.out.println(pricePerHour);
+        JobPost jobPost = jobPostRepository.findById(jobId);
+        jobPost.getBid().add(bid);
+        jobPostRepository.save(jobPost);
         return new RedirectView("/jobs");
     }
 

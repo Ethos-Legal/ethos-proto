@@ -50,9 +50,10 @@
         </button>
     </div>
 </nav>
-<table style="width:100%">
+<table  style="width:100%">
 
-    <tr>
+    <tr th:each="data : ${jobPostList}">
+
         <section class="post-section">
 
 
@@ -63,22 +64,23 @@
                         <div class="div-posting">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">
-                            <div th:each="data : ${jobPostList}">
+
 
                                 <h4 th:text="${data.jobTitle}"></h4>
-                                <p th:text="'DateToComplete: ' + ${data.dateToComplete} + ' songs'"></p>
+                                <p th:text="'DateToComplete: ' + ${data.dateToComplete}"></p>
                                 <p th:text="'DatePosted: ' + ${data.datePosted} + ' min'"></p>
                                 <p th:text="'Description: ' + ${data.description} + ' min'"></p>
                             <p th:text="'ServiceType: ' + ${data.serviceType} + ' min'"></p>
 
 
-                            </div>
+
                             </p>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
                             <form action="/postBid" method="POST">
                                 <label for="inputPassword2" class="sr-only">Password</label>
                                 <div  class="input-group">
+<!--                                    <input type="hidden" name="jobId" th:text="${data.id}" >-->
                                     <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
                                            aria-describedby="button-addon2" />
                                     <input type="submit">
@@ -88,72 +90,8 @@
                         </div>
 
         </section>
+
     </tr>
-    <tr>
-        <section class="post-section">
-
-
-            <div class="card" style="width: 119rem; height: 300px">
-                <div class="card-body">
-                    <div class="inner-card-body">
-                        <img class="card-img-top" src="images/lawFirm2.png" alt="Card image cap" height="200px">
-                        <div class="div-posting">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text Some quick example text to build on the card
-                                title and make up the bulk of the card's content.n the card title and make up the bulk of
-                                the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                            </p>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <div  class="input-group">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-                                       aria-describedby="button-addon2" />
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                                    BId
-                                </button>
-                            </div>
-                        </div>
-
-        </section>
-    </tr>
-    <tr>
-        <section class="post-section">
-
-
-            <div class="card" style="width: 119rem; height: 300px">
-                <div class="card-body">
-                    <div class="inner-card-body">
-                        <img class="card-img-top" src="images/lawfirm3.png" alt="Card image cap" height="200px">
-                        <div class="div-posting">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text Some quick example text to build on the card
-                                title and make up the bulk of the card's content.n the card title and make up the bulk of
-                                the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                                of the card's content.Some quick example text to build on the card title and make up the bulk
-                            </p>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <div  class="input-group">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-                                       aria-describedby="button-addon2" />
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                                    BId
-                                </button>
-                            </div>
-                        </div>
-
-        </section>
-    </tr>
-
 
 
 </table>

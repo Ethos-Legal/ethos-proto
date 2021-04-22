@@ -9,6 +9,7 @@ public class Bid {
     public long id;
     String pricePerHour;
     String datePosted;
+    String jobSeeker;
 
 
 
@@ -22,8 +23,9 @@ public class Bid {
     @ManyToOne
     JobPost jobPost;
 
-    public Bid(String pricePerHour) {
+    public Bid(String pricePerHour, String jobSeeker) {
         this.pricePerHour = pricePerHour;
+        this.jobSeeker = jobSeeker;
 //        this.datePosted = datePosted;
     }
 
