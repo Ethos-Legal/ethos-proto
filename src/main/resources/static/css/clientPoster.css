@@ -16,4 +16,50 @@
 }
 
 
+.card-img-top{
+    width: 300px;
+
+}
+.div-posting{
+    margin-left: 400px;
+    margin-top: -195px;
+    margin-bottom: 10px;
+    height:200px;
+    background-color:white;
+    padding-left
+
+
+}
+
+
+.form-control{
+
+    width: 200px;
+}
+
+.input-group{
+    width: 250px;
+    margin-left: 400px;
+    margin-top: 15px;
+
+
+}
+#button-addon2{
+    margin-bottom: 10px;
+}
+
+.card{
+    padding-top: 10px;
+    background-color: rgba(205, 207, 214, 0.164);
+}
+
+header{
+margin-left: 38%;
+}
+
+.card-title{
+    margin-left: 3%;
+}
+
+
 
