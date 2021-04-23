@@ -57,9 +57,12 @@ public class ClientPosterController {
 
         Bid bid = new Bid(pricePerHour, principal.getName(), ts);
         bidRepository.save(bid);
+
+
         long longJobId = Long.parseLong(jobId);
         JobPost jobPost = jobPostRepository.findById(longJobId);
         jobPost.getBid().add(bid);
+
         jobPostRepository.save(jobPost);
         return new RedirectView("/jobs");
     }

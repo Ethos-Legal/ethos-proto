@@ -42,9 +42,10 @@
 </nav>
 <table  style="width:100%">
 
-    <tr th:each="data : ${jobPostList}">
-        <tr th:each="bid : ${data.getBid().getJobSeeker()}"></tr>
-        <section th:if="{bid == pric}" class="post-section">
+    <div th:each="data : ${jobPostList}">
+
+        <tr>
+        <section class="post-section">
 
 
             <div class="card" style="width: 119rem; height: 300px">
@@ -86,8 +87,9 @@
                         </div>
 
         </section>
-
-    </tr>
+        </tr>
+            </div>
+    </div>
 
 
 </table>

@@ -6,19 +6,23 @@ import java.util.List;
 
 
 @Entity
-    public class JobPost {
+public class JobPost {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         public long id;
-        public boolean isActive= false;
+        public boolean isActive = false;
+        String jobTitle;
+        String dateToComplete;
+        String datePosted;
+        String description;
+        String serviceType;
+        String jobSeeker;
 
         public long getId() {
             return id;
         }
 
-        public JobPost() {
-
-        }
+        public JobPost() {}
 
     public JobPost(String jobTitle, String dateToComplete, String datePosted, String description, String serviceType) {
         this.jobTitle = jobTitle;
@@ -26,19 +30,15 @@ import java.util.List;
         this.datePosted = datePosted;
         this.description = description;
         this.serviceType = serviceType;
-
     }
 
-    String jobTitle;
-        String dateToComplete;
-        String datePosted;
-        String description;
-        String serviceType;
+
 
         @OneToMany
         List<Bid> bid = new ArrayList<>();
 
-
+        @OneToMany
+        List<Notes> notes = new ArrayList<>();
 
         @Override
         public int hashCode() {
@@ -123,6 +123,14 @@ import java.util.List;
 
         public void setBid(List<Bid> bid) {
             this.bid = bid;
+        }
+
+        public List<Notes> getNotes() {
+            return notes;
+        }
+
+        public void setNotes(List<Notes> notes) {
+            this.notes = notes;
         }
 }
 

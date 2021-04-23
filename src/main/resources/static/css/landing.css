@@ -35,7 +35,7 @@ body {
 .buttons{
     position: absolute;
     top: 28%;
-    left: 37%;
+    left: 49%;
     margin-top: 330px;
 
     width: 600px;
@@ -52,7 +52,7 @@ body {
 .havAcctLink{
     color: white;
     margin-top: 35px;
-    margin-left: 16%;
+    padding-left: 19%;
 
 }
 .card-img-top{
@@ -88,5 +88,15 @@ body {
 .card{
     padding-top: 10px;
     background-color: rgba(205, 207, 214, 0.164);
+}
+
+#buttTwo{
+margin-left:5%;
+color:white;
+}
+
+#navBarID{
+    color: white;
+    margin-left: 10px;
 }
 
