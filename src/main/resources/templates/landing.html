@@ -26,7 +26,11 @@
 
 <body class="bg-image" style="background-image: url('images/columsLaw.jpg');
 height: 100vh">
-
+<nav class="navbar navbar-light bg-dark">
+        <a id="navBarID" class="navbar-brand" onClick="window.location.href='/reg'" >
+            Sign-up
+        </a>
+</nav>
 
 <div class="mid-pic">
 
@@ -34,10 +38,9 @@ height: 100vh">
 
 <div class="buttons">
 
-    <p>
+    <p id="butt-p">
 
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Job Seeker</button>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Attorney Client</button>
+        <button id="butt-1-" class="btn btn-lg btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Login</button>
 
     </p>
     <div class="row">
@@ -55,7 +58,9 @@ height: 100vh">
                     </div>
 
                     <button name="Login" type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
+                <a onClick="window.location.href='/reg'"  id="buttTwo">Don't have a account already?</a>
             </div>
         </div>
         <div class="col">
@@ -73,7 +78,7 @@ height: 100vh">
             </div>
         </div>
     </div>
-    <button onClick="window.location.href='/reg'"   type="button" class="btn btn-primary btn btn-rounded" id="buttTwo">Don't have a account already?</button>
+
 
 </div>
 
