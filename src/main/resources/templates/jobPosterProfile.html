@@ -90,11 +90,8 @@
 <h2>Active Jobs</h2>
 <table  style="width:100%">
 
-  <div th:each="data : ${jobPostList}">
-    <div th:each="${bidData : ${jobPostList.bid}">
-      <p>
-        this is a thing
-      </p>
+  <div th:each="data : ${activeJobs}">
+
       <tr>
         <section class="post-section">
 
@@ -139,7 +136,7 @@
 
         </section>
       </tr>
-    </div>
+
   </div>
 
 
@@ -149,11 +146,8 @@
 
 <table  style="width:100%">
 
-  <div th:each="data : ${jobPostList}">
-    <div th:each="${bidData : ${jobPostList.bid}">
-      <p>
-        this is a thing
-      </p>
+  <div th:each="data : ${outstandingJobs}">
+
       <tr>
         <section class="post-section">
 
@@ -198,7 +192,6 @@
 
         </section>
       </tr>
-    </div>
   </div>
 
 
