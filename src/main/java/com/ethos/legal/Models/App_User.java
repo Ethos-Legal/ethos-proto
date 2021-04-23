@@ -17,8 +17,8 @@ public class App_User implements UserDetails {
     long id;
     String email;
     String password;
-    boolean isClientPoster;
-    boolean isJobSeeker;
+    boolean isClientPoster = false;
+    boolean isJobSeeker = false;
     String name;
     String phoneNumber;
     String linkedInUrl;
@@ -34,6 +34,9 @@ public class App_User implements UserDetails {
     List<ActiveJobs> activeJobs = new ArrayList<>();
     @OneToMany
     List<JobPost> jobPost = new ArrayList<>();
+    @OneToMany
+    List<Bid> bid = new ArrayList<>();
+
     public App_User(){} // default constructor
     public App_User( String email, String password, String name, String phoneNumber, String linkedInUrl, String lawFirm, String lawFirmAddress, int age, String credentials, String description) {
 
@@ -202,5 +205,17 @@ public class App_User implements UserDetails {
 
     public void setJobPost(List<JobPost> jobPost) {
         this.jobPost = jobPost;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public List<Bid> getBid() {
+        return bid;
+    }
+
+    public void setBid(List<Bid> bid) {
+        this.bid = bid;
     }
 }
