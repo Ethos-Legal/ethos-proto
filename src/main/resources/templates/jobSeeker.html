@@ -1,90 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-    <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 </head>
+
 <body>
-<nav class="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="images/ethos.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/ethos.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
 
-        </a>
-    </div>
-</nav>
-<Header>
-<!--    <div class="Amount-owed">-->
-<!--        <div class="inner-Div">-->
-<!--            <header>-->
-<!--                Amount owed: <p class="p-amt-owe">$200.68</p>-->
-<!--            </header>-->
-<!--            <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>-->
+            </a>
+        </div>
+    </nav>
+    <Header>
+        <!--    <div class="Amount-owed">-->
+        <!--        <div class="inner-Div">-->
+        <!--            <header>-->
+        <!--                Amount owed: <p class="p-amt-owe">$200.68</p>-->
+        <!--            </header>-->
+        <!--            <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>-->
 
-<!--        </div>-->
-<!--    </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
 
-    <div class="profile">
-        <div class="prof-inner-Div">
-            <header><h2>Chase</h2></header>
-            <div class= "profile-img">
+        <div class="profile">
+            <div class="prof-inner-Div">
+                <header>
+                    <h2>Chase</h2>
+                </header>
+                <div class="profile-img">
+
+                </div>
+                <img class="card-img-prof" src="images/profile-pic-ethos.jpg" alt="Card image cap" width="140px"
+                    height="140px">
+                <button onClick="window.location.href='/jobs'" type="button-prof" id="butt-Prof"
+                    class="btn btn-primary">See All Posts!</button>
 
             </div>
-            <img class="card-img-prof" src="images/profile-pic-ethos.jpg" alt="Card image cap" width="140px" height="140px">
-            <button onClick="window.location.href='/jobs'"  type="button-prof" id="butt-Prof" class="btn btn-primary">See All Posts!</button>
+        </div>
+
+
+    </Header>
+
+    <div class="out-registration">
+        <div class="registration">
+
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Law-Firm</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputText4" class="form-label">Business Phone number</label>
+                    <input type="text" class="form-control" id="inputText4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">LinkedIN</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                </div>
+
 
         </div>
+
+        <div class="reg-butt">
+            <button type="submit" class="btn btn-primary">Edit Info</button>
+        </div>
+        </form>
     </div>
 
+    <table style="width:100%">
 
-</Header>
+        <div th:each="data : ${activeJobs}">
+            <tr>
+                <section class="post-section">
+                    <div class="card" style="width: 119rem; height: 300px">
+                        <div class="card-body">
+                            <div class="inner-card-body">
 
-<div class="out-registration">
-    <div class="registration">
-
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Law-Firm</label>
-                <input type="text" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputText4" class="form-label">Business Phone number</label>
-                <input type="text" class="form-control" id="inputText4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">LinkedIN</label>
-                <input type="text" class="form-control" id="inputEmail4">
-            </div>
+                                <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"
+                                    height="200px">
 
 
-    </div>
+                                <div class="div-posting">
+                                    <header>
+                                        <div head-div>
+                                            <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
+                                            <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}">
+                                            </p>
+                                        </div>
+                                    </header>
 
-    <div class="reg-butt">
-        <button type="submit" class="btn btn-primary">Edit Info</button>
-    </div>
-    </form>
-</div>
+                                    <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
+                                        <div>
+                                            <p class="card-text">
+                                            <p th:text="${data.description}"></p>
+                                        </div>
+                                     </p>
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <form action="/postBid" method="POST">
+                                        <label for="inputPassword2" class="sr-only">Password</label>
+                                        <div class="input-group">
+                                            <input type="hidden" name="jobId" th:value="${data.id}">
+                                            <input name="pricePerHour" type="text" class="form-control"
+                                                placeholder="Place A Bid!!" aria-label="Place A Bid!!"
+                                                aria-describedby="button-addon2" />
+                                            <input type="submit">
+                                        </div>
+                                    </form>
+                                </div>
+                </section>
+            </tr>
+        </div>
+    </table>
+
+    <table style="width:100%">
+
+        <div th:each="data : ${outstandingBids}">
+            <tr>
+                <section class="post-section">
+                    <div class="card" style="width: 119rem; height: 300px">
+                        <div class="card-body">
+                            <div class="inner-card-body">
+
+                                <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"
+                                    height="200px">
+
+
+                                <div class="div-posting">
+                                    <header>
+                                        <div head-div>
+                                            <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
+                                            <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}">
+                                            </p>
+                                        </div>
+                                    </header>
+
+                                    <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
+                                        <div>
+                                            <p class="card-text">
+                                            <p th:text="${data.description}"></p>
+                                        </div>
+                                     </p>
+                                </div>
+                </section>
+            </tr>
+        </div>
+    </table>
 </body>
+
 </html>

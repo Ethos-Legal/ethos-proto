@@ -17,9 +17,7 @@ public class Bid {
         return id;
     }
 
-    public Bid() {
-
-    }
+    public Bid() {}
     @ManyToOne
     JobPost jobPost;
 
@@ -89,5 +87,13 @@ public class Bid {
 
     public void setJobSeeker(String jobSeeker) {
         this.jobSeeker = jobSeeker;
+    }
+
+    public String getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
 }
