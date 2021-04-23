@@ -13,13 +13,15 @@ import java.text.SimpleDateFormat;
         String name;
         String note;
         Timestamp timeStamp;
+        String jobId;
 
         public Notes() {}
 
-        public Notes(String name, String note, Timestamp timeStamp) {
+        public Notes(String name, String note, Timestamp timeStamp, String jobId) {
             this.name = name;
             this.note = note;
             this.timeStamp = timeStamp;
+            this.jobId = jobId;
         }
 
         @Override
@@ -70,6 +72,24 @@ import java.text.SimpleDateFormat;
         public void setTimeStamp(Timestamp timeStamp) {
             this.timeStamp = timeStamp;
         }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getJobId() {
+            return jobId;
+        }
+
+        public void setJobId(String jobId) {
+            this.jobId = jobId;
+        }
+
+
     }
 
 

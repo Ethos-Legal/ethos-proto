@@ -43,7 +43,7 @@ public class JobPosterProfileController {
     public RedirectView addNote(Principal principal, String noteText, String jobId) {
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
-        Notes note = new Notes(principal.getName(), noteText, ts);
+        Notes note = new Notes(principal.getName(), noteText, ts, jobId);
         notesRepository.save(note);
 
         JobPost jobPost = jobPostRepository.findById(Long.parseLong(jobId));
@@ -59,6 +59,7 @@ public class JobPosterProfileController {
 
         for(JobPost job : activeJobs) {
             if(job.isActive()) {
+                System.out.println(job.getNotes().toString());
                 newArrJobs.add(job);
             }
         }
@@ -77,4 +78,6 @@ public class JobPosterProfileController {
         }
         return newArrJobs;
     }
+
+
 }
