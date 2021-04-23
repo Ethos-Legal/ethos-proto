@@ -7,16 +7,11 @@
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
-
-    <link href="/css/jobPosterProfile.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-
     <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-
 </head>
 <body>
 <nav class="navbar">
@@ -27,25 +22,6 @@
     </div>
 </nav>
 <Header>
-
-<!--    <div class="Amount-owed">
-<!--        <div class="inner-Div">-->
-<!--            <header>-->
-<!--                Amount owed: <p class="p-amt-owe">$200.68</p>-->
-<!--            </header>-->
-<!--            <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>-->
-<!--        </div>-->
-<!--    </div>-->
-    <div class="profile">
-        <div class="prof-inner-Div">
-            <header><h2>Chase</h2></header>
-            <div class= "profile-img">
-            </div>
-            <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">
-            <button onClick="window.location.href='/postMaker'"  type="button-prof" id="butt-Prof" class="btn btn-primary">See All Posts!</button>
-        </div>
-    </div>
-
     <div class="Amount-owed">
         <div class="inner-Div">
             <header>
@@ -118,87 +94,64 @@
 
             </div>
         </div>
-
 </Header>
 <div class="out-registration">
     <div class="registration">
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Law-Firm</label>
-                <input type="text" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputText4" class="form-label">Business Phone number</label>
-                <input type="text" class="form-control" id="inputText4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">LinkedIN</label>
-                <input type="text" class="form-control" id="inputEmail4">
-            </div>
-    </div>
-    <div class="reg-butt">
-        <button type="submit" class="btn btn-primary">Edit Info</button>
-    </div>
-    </form>
-</div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+            Edit Info
+        </button>
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Edit Account Settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
-<div>
-    <h3 class="catJobAct">Active Jobs</h3>
-    <table  style="width:100%">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Law-Firm</label>
+                                <input type="text" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputText4" class="form-label">Business Phone number</label>
+                                <input type="text" class="form-control" id="inputText4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">LinkedIN</label>
+                                <input type="text" class="form-control" id="inputEmail4">
+                            </div>
 
-        <div th:each="data : ${activeJobs}">
-            <tr class="tr">
-                <section class="post-section">
-                    <div class="card" style="width: 119rem; height: 300px">
-                        <div class="card-body">
-                            <div class="inner-card-body">
-                                <img  href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-                                <div class="div-posting">
-                                    <header >
-                                        <div head-div>
-                                            <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
-                                            <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
-                                        </div>
-                                    </header>
-                                    <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
-                                    <div>
-                                        <p class="card-text">
-                                        <p th:text="${data.description}"></p>
-                                    </div>
-                                    </p>
-                                </div>
-                                <div class="form-group mx-sm-3 mb-2">
-                                    <form action="/postBid" method="POST">
-                                        <label for="inputPassword2" class="sr-only">Password</label>
-                                        <div  class="input-group">
-                                            <input type="hidden" name="jobId" th:value="${data.id}" >
-                                            <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
-                                                   aria-describedby="button-addon2" />
-                                            <input type="submit">
-                                        </div>
-                                    </form>
-                                </div>
-                </section>
-            </tr>
+                            <div class="reg-butt">
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </table>
+    </div>
+
 </div>
-
-<!--<h2>Outstanding Bids</h2>-->
-<table  style="width:100%">
-
 <h2>Active Jobs</h2>
 <table style="width:100%">
     <div th:each="data : ${activeJobs}">
@@ -241,12 +194,11 @@
 </table>
 <h2>Outstanding Bids</h2>
 <table style="width:100%">
-
     <div th:each="data : ${outstandingJobs}">
         <tr>
             <section class="post-section">
                 <div class="card" style="width: 119rem; height: 300px">
-                    <div class="card-body"
+                    <div class="card-body">
                         <div class="inner-card-body">
                             <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"
                                  height="200px">
@@ -257,7 +209,6 @@
                                         <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
                                     </div>
                                 </header>
-
                                 <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
                                 <div>
                                     <p class="card-text">
@@ -265,7 +216,6 @@
                                 </div>
                                 </p>
                             </div>
-
                             <div class="form-group mx-sm-3 mb-2">
                                 <form action="/postBid" method="POST">
                                     <label for="inputPassword2" class="sr-only">Password</label>
@@ -278,14 +228,12 @@
                                     </div>
                                 </form>
                             </div>
-
             </section>
         </tr>
     </div>
 </table>
 </div>
 </section>
-
 
 <script type="text/javascript" src="/js/landing.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
