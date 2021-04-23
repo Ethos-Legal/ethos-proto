@@ -24,7 +24,7 @@ public class JobSeekerController {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
 
         m.addAttribute("activeJobs", sortActiveJobs(principal));
-        m.addAttribute("outstandingBids", appUser.getBid());
+        m.addAttribute("outstandingBids", sortBids(principal));
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
         return "jobSeeker.html";
@@ -39,6 +39,18 @@ public class JobSeekerController {
             if(job.isActive()) {
                 newArrJobs.add(job);
             }
+        }
+        return newArrJobs;
+    }
+
+    public ArrayList<JobPost> sortBids(Principal principal) {
+        ArrayList<JobPost> newArrJobs = new ArrayList<>();
+        App_User appUser = app_user_repository.findByEmail(principal.getName());
+
+        for(Bid bid : appUser.getBid()) {
+            long longJobId = Long.parseLong(bid.getJobId());
+            JobPost jobPost = jobPostRepository.findById(longJobId);
+            newArrJobs.add(jobPost);
         }
         return newArrJobs;
     }
