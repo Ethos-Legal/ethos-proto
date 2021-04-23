@@ -17,6 +17,7 @@ public class JobPost {
         String description;
         String serviceType;
         String jobSeeker;
+        String priceHour;
 
         public long getId() {
             return id;
@@ -132,6 +133,22 @@ public class JobPost {
         public void setNotes(List<Notes> notes) {
             this.notes = notes;
         }
+
+    public String getJobSeeker() {
+        return jobSeeker;
+    }
+
+    public void setJobSeeker(String jobSeeker) {
+        this.jobSeeker = jobSeeker;
+    }
+
+    public String getPriceHour() {
+        return priceHour;
+    }
+
+    public void setPriceHour(String priceHour) {
+        this.priceHour = priceHour;
+    }
 }
 
 

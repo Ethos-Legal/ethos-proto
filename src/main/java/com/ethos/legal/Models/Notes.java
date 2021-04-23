@@ -1,6 +1,7 @@
 package com.ethos.legal.Models;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 
@@ -9,16 +10,19 @@ import java.text.SimpleDateFormat;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         public long id;
-
-        public Notes() {
-            super();
-        }
+        String name;
         String note;
-        SimpleDateFormat timeStamp = new SimpleDateFormat();
+        Timestamp timeStamp;
+        String jobId;
 
-        @ManyToOne
-        ActiveJobs activeJobs;
+        public Notes() {}
 
+        public Notes(String name, String note, Timestamp timeStamp, String jobId) {
+            this.name = name;
+            this.note = note;
+            this.timeStamp = timeStamp;
+            this.jobId = jobId;
+        }
 
         @Override
         public int hashCode() {
@@ -61,23 +65,29 @@ import java.text.SimpleDateFormat;
             this.note = note;
         }
 
-        public SimpleDateFormat getTimeStamp() {
+        public Timestamp getTimeStamp() {
             return timeStamp;
         }
 
-        public void setTimeStamp(SimpleDateFormat timeStamp) {
+        public void setTimeStamp(Timestamp timeStamp) {
             this.timeStamp = timeStamp;
         }
 
-        public ActiveJobs getActiveJobs() {
-            return activeJobs;
+        public String getName() {
+            return name;
         }
 
-        public void setActiveJobs(ActiveJobs activeJobs) {
-            this.activeJobs = activeJobs;
+        public void setName(String name) {
+            this.name = name;
         }
 
+        public String getJobId() {
+            return jobId;
+        }
 
+        public void setJobId(String jobId) {
+            this.jobId = jobId;
+        }
 
 
     }

@@ -1,0 +1,6 @@
+ id | age | credentials | description |       email        | is_client_poster | is_job_seeker | law_firm | law_firm_address | linked_in_url | name |                           password                           | phone_number | star_rating 
+----+-----+-------------+-------------+--------------------+------------------+---------------+----------+------------------+---------------+------+--------------------------------------------------------------+--------------+-------------
+  1 |  24 | aegrergzsdf |             | 32fossil@gmail.com | f                | f             | ergarg   | 201 NE 40th St.  |               |      | $2a$10$aFDaweI2n67I16O.Rs3fTuko/Fylq4aWd1K8y04h.kpUc4Ol8xegG | 2064843769   |           0
+  2 |  23 | agdfdfg     |             | dave@dave.com      | f                | t             | agdf     | 201 NE 40th St.  |               |      | $2a$10$s0EEszB.Gtbj1Y1BipkDlO6B41Ai/SBZbX8dkg2XI0/WY2dNVvm7C | 2064843769   |           0
+(2 rows)
+

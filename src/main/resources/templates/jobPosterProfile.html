@@ -19,14 +19,40 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="images/ethos.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
 
-      </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Ethos-Legal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter">
+            Post A Job
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter2">
+            Edit Info
+          </button>
+        </li>
+        <li class="nav-item">
+          <button name="Logout" onclick="window.location.href='/logout'" class="btn btn-outline-light">Logout</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Button with data-bs-target
+          </button>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Navbar text with an inline element
+      </span>
     </div>
-  </nav>
+  </div>
+</nav>
   <Header>
     <div class="Amount-owed">
       <div class="inner-Div">
@@ -36,7 +62,7 @@
         <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>
 
       </div>
-      <button name="Logout" type="submit" class="btn btn-primary">Logout</button>
+
     </div>
 
     <div class="profile">
@@ -46,18 +72,14 @@
         </header>
         <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          Post A Job
-        </button>
+
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Job Posting</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+
               </div>
               <div class="modal-body">
 
@@ -86,29 +108,24 @@
                         <option>Patent-Filing</option>
                         <option>Witness-Review</option>
                       </select>
+                      <label>Description: </label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <div class="input-group">
-                      <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
-                    </div>
+<!--                    <div class="input-group">-->
+<!--                      -->
+<!--                    </div>-->
                   </div>
                   <input type="submit">
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
   </Header>
   <div class="out-registration">
-    <div class="registration">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
-        Edit Info
-      </button>
+<!--    <div class="registration">-->
+
       <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -146,22 +163,28 @@
                   <label for="inputEmail4" class="form-label">LinkedIN</label>
                   <input type="text" class="form-control" id="inputEmail4">
                 </div>
-
-                <div class="reg-butt">
-                </div>
+                <input  type="submit" class="button-sub">
+<!--                <div class="reg-butt">-->
+<!--                </div>-->
               </form>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+<!--              <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--              </div>-->
             </div>
           </div>
-        </div>
+<!--        </div>-->
       </div>
     </div>
   </div>
 
-  <h2>Active Jobs</h2>
+
+
+
+
+
+<h2>Active Jobs</h2>
+<div>
 <table style="width:100%">
     <div th:each="data : ${activeJobs}">
         <tr>
@@ -180,30 +203,41 @@
                                 </header>
                                 <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
                                 <div>
-                                    <p class="card-text">
+                                    <p class="card-text"></p>
                                     <p th:text="${data.description}"></p>
                                 </div>
-                                </p>
+                              <div class ="bidClass">
+                                <p th:text="${data.jobSeeker}"></p>
+<!--                                <p th:text="${data.pricePerHour}"></p>-->
+                              </div>
+                            </div>
+                          <div>
+                            <div th:each="note : ${data.notes}">
+<!--                              <p th:text="${note.timeStamp}"></p>-->
+                              <p th:text="${note.name}"></p>
+                              <p th:text="${note.note}"></p>
                             </div>
                             <div class="form-group mx-sm-3 mb-2">
-                                <form action="/postBid" method="POST">
-                                    <label for="inputPassword2" class="sr-only">Password</label>
-                                    <div class="input-group">
-                                        <input type="hidden" name="jobId" th:value="${data.id}">
-                                        <input name="pricePerHour" type="text" class="form-control"
-                                               placeholder="Place A Bid!!" aria-label="Place A Bid!!"
-                                               aria-describedby="button-addon2"/>
-                                        <input type="submit">
-                                    </div>
-                                </form>
+                              <form action="/addNote" method="POST">
+                                <div class="input-group">
+                                  <input type="hidden" name="jobId" th:value="${data.id}">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Add a Note</span>
+                                  </div>
+                                  <textarea class="form-control" aria-label="With textarea" name="noteText"></textarea>
+                                  <input type="submit">
+                                </div>
+                              </form>
                             </div>
+                          </div>
             </section>
         </tr>
     </div>
 </table>
+</div>
 
   <h2>Outstanding Bids</h2>
-
+<div>
   <table style="width:100%">
 
     <div th:each="data : ${outstandingJobs}">
@@ -226,30 +260,52 @@
                       <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
                     </div>
                   </header>
-
                   <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
                   <div>
-
-                    <p class="card-text">
-                    <p th:text="${data.description}"></p>
-
+                    <p class="card-text" th:text="${data.description}"></p>
                   </div>
+                </div>
+                <div class="buttons">
 
+                  <p id="butt-p">
+
+                    <button id="butt-1-" class="btn btn-lg btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">See Bids</button>
 
                   </p>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                  <form action="/postBid" method="POST">
-                    <label for="inputPassword2" class="sr-only">Password</label>
-                    <div class="input-group">
-                      <input type="hidden" name="jobId" th:value="${data.id}">
-                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!"
-                        aria-label="Place A Bid!!" aria-describedby="button-addon2" />
-                      <input type="submit">
+                  <div class="row">
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <form action="/hire" method="POST">
+                          <div class="form-group" th:each="bid : ${data.bid}">
+                            <div class ="bidClass">
+                              <p th:text="${bid.jobSeeker}"></p>
+                              <p th:text="${bid.datePosted}"></p>
+                              <p th:text="${bid.pricePerHour}"></p>
+                              <input type="hidden" name="jobId" th:value="${data.id}">
+                              <input type="hidden" name="bidSeeker" th:value="${bid.jobSeeker}">
+                              <input type="hidden" name="bidPrice" th:value="${bid.pricePerHour}">
+                              <button type="submit" class="btn btn-primary" name="hire">Hire!</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
-                  </form>
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="card card-body">
+                          <div id="signInForm" >
+                            <form id="landingSignInJobSeeker">
+                              <label for="signInEmail">Email:</label>
+                              <input type="text" id="signInEmail">
+                              <label for="signInPassword">Password:</label>
+                              <input type="text" id="signInPassword">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
         </section>
       </tr>
     </div>
