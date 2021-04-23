@@ -99,7 +99,16 @@
     margin-left: 3%;
 }
 
+
+.bidClass {
+    display: inline-flex;
+}
+
+p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .button-sub{
     width:13%;
 }
-

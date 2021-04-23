@@ -55,7 +55,7 @@
 
 
     </Header>
-
+    <h2>Active Jobs</h2>
     <table style="width:100%">
 
         <div th:each="data : ${activeJobs}">
@@ -87,13 +87,13 @@
                                      </p>
                                 </div>
                                 <div class="form-group mx-sm-3 mb-2">
-                                    <form action="/postBid" method="POST">
-                                        <label for="inputPassword2" class="sr-only">Password</label>
+                                    <form action="/addNote" method="POST">
                                         <div class="input-group">
                                             <input type="hidden" name="jobId" th:value="${data.id}">
-                                            <input name="pricePerHour" type="text" class="form-control"
-                                                placeholder="Place A Bid!!" aria-label="Place A Bid!!"
-                                                aria-describedby="button-addon2" />
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Add a Note</span>
+                                                </div>
+                                            <textarea class="form-control" aria-label="With textarea" name="noteText"></textarea>
                                             <input type="submit">
                                         </div>
                                     </form>
@@ -102,7 +102,7 @@
             </tr>
         </div>
     </table>
-
+    <h2>Outstanding Bids</h2>
     <table style="width:100%">
 
         <div th:each="data : ${outstandingBids}">

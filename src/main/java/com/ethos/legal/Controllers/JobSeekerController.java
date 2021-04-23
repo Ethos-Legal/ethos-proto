@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -19,6 +21,9 @@ public class JobSeekerController {
     @Autowired
     JobPostRepository jobPostRepository;
 
+    @Autowired
+    BidRepository bidRepository;
+
     @GetMapping("/jobSeeker")
     public String jobPostBoard(Principal principal, Model m) {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
@@ -28,6 +33,20 @@ public class JobSeekerController {
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
         return "jobSeeker.html";
+    }
+
+    @PostMapping("/hire")
+    public RedirectView hireForJob(Principal principal, String bidSeeker, String jobId, String bidPrice) {
+        long newJobId = Long.parseLong(jobId);
+        JobPost jobPost = jobPostRepository.findById(newJobId);
+        jobPost.isActive = true;
+        jobPost.setJobSeeker(bidSeeker);
+        jobPost.setPriceHour(bidPrice);
+        System.out.println(jobPost.getPriceHour().getClass());
+        jobPostRepository.save(jobPost);
+
+
+        return new RedirectView("/JobPosterProfile");
     }
 
     public ArrayList<JobPost> sortActiveJobs(Principal principal) {

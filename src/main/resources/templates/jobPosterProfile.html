@@ -202,23 +202,33 @@
                                 </header>
                                 <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
                                 <div>
-                                    <p class="card-text">
+                                    <p class="card-text"></p>
                                     <p th:text="${data.description}"></p>
                                 </div>
-                                </p>
+                              <div class ="bidClass">
+                                <p th:text="${data.jobSeeker}"></p>
+<!--                                <p th:text="${data.pricePerHour}"></p>-->
+                              </div>
+                            </div>
+                          <div>
+                            <div th:each="note : ${data.notes}">
+                              <p th:text="${note.timeStamp}"></p>
+                              <p th:text="${note.name}"></p>
+                              <p th:text="${note.note}"></p>
                             </div>
                             <div class="form-group mx-sm-3 mb-2">
-                                <form action="/postBid" method="POST">
-                                    <label for="inputPassword2" class="sr-only">Password</label>
-                                    <div class="input-group">
-                                        <input type="hidden" name="jobId" th:value="${data.id}">
-                                        <input name="pricePerHour" type="text" class="form-control"
-                                               placeholder="Place A Bid!!" aria-label="Place A Bid!!"
-                                               aria-describedby="button-addon2"/>
-                                        <input type="submit">
-                                    </div>
-                                </form>
+                              <form action="/addNote" method="POST">
+                                <div class="input-group">
+                                  <input type="hidden" name="jobId" th:value="${data.id}">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Add a Note</span>
+                                  </div>
+                                  <textarea class="form-control" aria-label="With textarea" name="noteText"></textarea>
+                                  <input type="submit">
+                                </div>
+                              </form>
                             </div>
+                          </div>
             </section>
         </tr>
     </div>
@@ -248,29 +258,63 @@
                       <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
                     </div>
                   </header>
-
                   <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
                   <div>
-
-                    <p class="card-text">
-                    <p th:text="${data.description}"></p>
-
+                    <p class="card-text" th:text="${data.description}"></p>
                   </div>
+                </div>
+                <div class="buttons">
 
+                  <p id="butt-p">
+
+                    <button id="butt-1-" class="btn btn-lg btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">See Bids</button>
 
                   </p>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                  <form action="/postBid" method="POST">
-                    <label for="inputPassword2" class="sr-only">Password</label>
-                    <div class="input-group">
-                      <input type="hidden" name="jobId" th:value="${data.id}">
-                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!"
-                        aria-label="Place A Bid!!" aria-describedby="button-addon2" />
-                      <input type="submit">
+                  <div class="row">
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <form action="/hire" method="POST">
+                          <div class="form-group" th:each="bid : ${data.bid}">
+                            <div class ="bidClass">
+                              <p th:text="${bid.jobSeeker}"></p>
+                              <p th:text="${bid.datePosted}"></p>
+                              <p th:text="${bid.pricePerHour}"></p>
+                              <input type="hidden" name="jobId" th:value="${data.id}">
+                              <input type="hidden" name="bidSeeker" th:value="${bid.jobSeeker}">
+                              <input type="hidden" name="bidPrice" th:value="${bid.pricePerHour}">
+                              <button type="submit" class="btn btn-primary" name="hire">Hire!</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
-                  </form>
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="card card-body">
+                          <div id="signInForm" >
+                            <form id="landingSignInJobSeeker">
+                              <label for="signInEmail">Email:</label>
+                              <input type="text" id="signInEmail">
+                              <label for="signInPassword">Password:</label>
+                              <input type="text" id="signInPassword">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+<!--                <div class="form-group mx-sm-3 mb-2">-->
+<!--                  <form action="/postBid" method="POST">-->
+<!--                    <div class="input-group">-->
+<!--                      <input type="hidden" name="jobId" th:value="${data.id}">-->
+<!--                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!"-->
+<!--                        aria-label="Place A Bid!!" aria-describedby="button-addon2" />-->
+<!--                      <input type="submit">-->
+<!--                    </div>-->
+<!--                  </form>-->
+<!--                </div>-->
 
         </section>
       </tr>
