@@ -39,7 +39,7 @@
           </button>
         </li>
         <li class="nav-item">
-          <button name="Logout" type="submit" class="btn btn-outline-light">Logout</button>
+          <button name="Logout" onclick="window.location.href='/logout'" class="btn btn-outline-light">Logout</button>
         </li>
         <li class="nav-item">
           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -183,7 +183,8 @@
 
 
 
-  <h2>Active Jobs</h2>
+<h2>Active Jobs</h2>
+<div>
 <table style="width:100%">
     <div th:each="data : ${activeJobs}">
         <tr>
@@ -211,11 +212,11 @@
                               </div>
                             </div>
                           <div>
-<!--                            <div th:each="note : ${data.notes}">-->
+                            <div th:each="note : ${data.notes}">
 <!--                              <p th:text="${note.timeStamp}"></p>-->
-<!--                              <p th:text="${note.name}"></p>-->
-<!--                              <p th:text="${note.note}"></p>-->
-<!--                            </div>-->
+                              <p th:text="${note.name}"></p>
+                              <p th:text="${note.note}"></p>
+                            </div>
                             <div class="form-group mx-sm-3 mb-2">
                               <form action="/addNote" method="POST">
                                 <div class="input-group">
@@ -233,9 +234,10 @@
         </tr>
     </div>
 </table>
+</div>
 
   <h2>Outstanding Bids</h2>
-
+<div>
   <table style="width:100%">
 
     <div th:each="data : ${outstandingJobs}">
@@ -304,18 +306,6 @@
                     </div>
                   </div>
                 </div>
-
-<!--                <div class="form-group mx-sm-3 mb-2">-->
-<!--                  <form action="/postBid" method="POST">-->
-<!--                    <div class="input-group">-->
-<!--                      <input type="hidden" name="jobId" th:value="${data.id}">-->
-<!--                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!"-->
-<!--                        aria-label="Place A Bid!!" aria-describedby="button-addon2" />-->
-<!--                      <input type="submit">-->
-<!--                    </div>-->
-<!--                  </form>-->
-<!--                </div>-->
-
         </section>
       </tr>
     </div>

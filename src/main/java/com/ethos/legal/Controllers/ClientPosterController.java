@@ -30,6 +30,7 @@ public class ClientPosterController {
     public String jobPoster(Principal principal, Model m) {
 
         App_User appUser = app_user_repository.findByEmail(principal.getName());
+
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
         return "clientPoster.html";

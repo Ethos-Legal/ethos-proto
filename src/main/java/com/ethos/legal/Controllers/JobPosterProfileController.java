@@ -29,9 +29,10 @@ public class JobPosterProfileController {
 
     @GetMapping("/JobPosterProfile")
     public String jobPosterProfile(Principal principal, Model m) {
-
         App_User appUser = app_user_repository.findByEmail(principal.getName());
-        System.out.println(appUser.getJobPost().get(0).getNotes().size());
+        if(!appUser.isClientPoster()) {
+            return "home.html";
+        }
         m.addAttribute("activeJobs", sortActiveJobs(principal));
         m.addAttribute("outstandingJobs", sortOutstandingJobs(principal));
         m.addAttribute("principal", principal);
@@ -45,9 +46,10 @@ public class JobPosterProfileController {
         Timestamp ts = new Timestamp(date.getTime());
         Notes note = new Notes(principal.getName(), noteText, ts, jobId);
         notesRepository.save(note);
-
-        JobPost jobPost = jobPostRepository.findById(Long.parseLong(jobId));
+        long newId = Long.parseLong(jobId);
+        JobPost jobPost = jobPostRepository.findById(newId);
         jobPost.getNotes().add(note);
+        jobPostRepository.save(jobPost);
 
         return new RedirectView("/JobPosterProfile");
     }
@@ -59,7 +61,6 @@ public class JobPosterProfileController {
 
         for(JobPost job : activeJobs) {
             if(job.isActive()) {
-                System.out.println(job.getNotes().toString());
                 newArrJobs.add(job);
             }
         }

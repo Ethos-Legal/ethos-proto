@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<button name="Logout" type="submit" class="btn btn-primary">Logout</button>
+<button name="Logout" onclick="window.location.href='/logout'" class="btn btn-primary">Logout</button>
     <nav class="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -56,6 +56,7 @@
 
     </Header>
     <h2>Active Jobs</h2>
+    <div>
     <table style="width:100%">
 
         <div th:each="data : ${activeJobs}">
@@ -102,7 +103,10 @@
             </tr>
         </div>
     </table>
+    </div>
+
     <h2>Outstanding Bids</h2>
+    <div>
     <table style="width:100%">
 
         <div th:each="data : ${outstandingBids}">
@@ -136,6 +140,7 @@
             </tr>
         </div>
     </table>
+    </div>
 
 <div class="out-registration">
     <div class="registration">

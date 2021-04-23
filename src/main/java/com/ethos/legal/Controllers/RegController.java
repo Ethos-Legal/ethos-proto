@@ -27,12 +27,17 @@ public class RegController {
     }
 
     @PostMapping("/newUser")
-    public RedirectView newRegUser(String email, String credentials, String password,String name,String lawFirm, String lawFirmAddress, String phoneNumber, String linkedInUrl, int age, String description){
+    public RedirectView newRegUser(String email, String credentials, String password,String name,String lawFirm, String lawFirmAddress, String phoneNumber, String linkedInUrl, int age, String description, String jobSeeker, String clientPoster){
 
         password = passwordEncoder.encode(password);
-        App_User newAppUser = new App_User(email, password, name, phoneNumber, linkedInUrl, lawFirm, lawFirmAddress , age,  credentials,  description );
-        app_user_repository.save(newAppUser);
+        App_User newAppUser = new App_User(email, password, name, phoneNumber, linkedInUrl, lawFirm, lawFirmAddress , age,  credentials,  description);
 
+        if (jobSeeker != null){
+            newAppUser.setClientPoster(true);
+        } else {
+            newAppUser.setJobSeeker(true);
+        }
+        app_user_repository.save(newAppUser);
         return new RedirectView("/");
     }
 }
