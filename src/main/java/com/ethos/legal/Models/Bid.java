@@ -11,6 +11,7 @@ public class Bid {
     String pricePerHour;
     Timestamp datePosted;
     String jobSeeker;
+    String jobId;
 
     public long getId() {
         return id;
@@ -22,10 +23,11 @@ public class Bid {
     @ManyToOne
     JobPost jobPost;
 
-    public Bid(String pricePerHour, String jobSeeker, Timestamp datePosted) {
+    public Bid(String pricePerHour, String jobSeeker, Timestamp datePosted, String jobId) {
         this.pricePerHour = pricePerHour;
         this.jobSeeker = jobSeeker;
         this.datePosted = datePosted;
+        this.jobId = jobId;
     }
 
     @Override

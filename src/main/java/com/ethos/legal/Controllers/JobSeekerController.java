@@ -35,7 +35,7 @@ public class JobSeekerController {
 
     public ArrayList<JobPost> sortActiveJobs(Principal principal) {
         ArrayList<JobPost> newArrJobs = new ArrayList<>();
-        JobPost jobPost = jobPostRepository.findAll());
+        App_User appUser = app_user_repository.findByEmail(principal.getName());
         List<JobPost> activeJobs = appUser.getJobPost();
 
         for(JobPost job : activeJobs) {

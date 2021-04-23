@@ -54,10 +54,12 @@ public class ClientPosterController {
     public RedirectView bidPoster(String pricePerHour, String jobId, Principal principal){
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
+        Bid bid = new Bid(pricePerHour, principal.getName(), ts, jobId);
 
-        Bid bid = new Bid(pricePerHour, principal.getName(), ts);
         bidRepository.save(bid);
-
+        App_User appUser = app_user_repository.findByEmail(principal.getName());
+        appUser.getBid().add(bid);
+        app_user_repository.save(appUser);
 
         long longJobId = Long.parseLong(jobId);
         JobPost jobPost = jobPostRepository.findById(longJobId);
