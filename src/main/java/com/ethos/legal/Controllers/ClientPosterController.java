@@ -29,8 +29,6 @@ public class ClientPosterController {
     @GetMapping("/postMaker")
     public String jobPoster(Principal principal, Model m) {
 
-
-
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         m.addAttribute("principal", principal);
         m.addAttribute("appUser", appUser);
@@ -54,9 +52,10 @@ public class ClientPosterController {
     public RedirectView bidPoster(String pricePerHour, String jobId, Principal principal){
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
-        Bid bid = new Bid(pricePerHour, principal.getName(), ts, jobId);
 
+        Bid bid = new Bid(pricePerHour, principal.getName(), ts, jobId);
         bidRepository.save(bid);
+
         App_User appUser = app_user_repository.findByEmail(principal.getName());
         appUser.getBid().add(bid);
         app_user_repository.save(appUser);
