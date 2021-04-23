@@ -87,103 +87,122 @@
   </form>
 </div>
 
+<h2>Active Jobs</h2>
+<table  style="width:100%">
+
+  <div th:each="data : ${jobPostList}">
+    <div th:each="${bidData : ${jobPostList.bid}">
+      <p>
+        this is a thing
+      </p>
+      <tr>
+        <section class="post-section">
 
 
-<tr>
+          <div class="card" style="width: 119rem; height: 300px">
+            <div class="card-body">
+              <div class="inner-card-body">
 
-  <section class="post-section">
+                <img  href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
 
 
+                <div class="div-posting">
+                  <header >
+                    <div head-div>
+                      <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
+                      <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
+                    </div>
+                  </header>
 
+                  <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
+                  <div>
+
+                    <p class="card-text">
+                    <p th:text="${data.description}"></p>
+
+                  </div>
+
+
+                  </p>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                  <form action="/postBid" method="POST">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <div  class="input-group">
+                      <input type="hidden" name="jobId" th:value="${data.id}" >
+                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
+                             aria-describedby="button-addon2" />
+                      <input type="submit">
+                    </div>
+                  </form>
+                </div>
+
+        </section>
+      </tr>
     </div>
-    <section>
+  </div>
 
 
-      <div class="card" >
+</table>
+
+<h2>Outstanding Bids</h2>
+
+<table  style="width:100%">
+
+  <div th:each="data : ${jobPostList}">
+    <div th:each="${bidData : ${jobPostList.bid}">
+      <p>
+        this is a thing
+      </p>
+      <tr>
+        <section class="post-section">
 
 
-        <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-        <div class="card-body">
-          <div class="inner-card-body">
-            <div class="div-posting">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text Some quick example text to build on the card
-                title and make up the bulk of the card's content.n the card title and make up the bulk of
-                the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-              </p>
-            </div>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="inputPassword2" class="sr-only">Password</label>
-              <div  class="input-group">
+          <div class="card" style="width: 119rem; height: 300px">
+            <div class="card-body">
+              <div class="inner-card-body">
 
-              </div>
-            </div>
-
-    </section>
-</tr>
-</div>
-
-</section>
-
-<section>
-
-  <div class="card" >
-    <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-    <div class="card-body">
-      <div class="inner-card-body">
-        <div class="div-posting">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text Some quick example text to build on the card
-            title and make up the bulk of the card's content.n the card title and make up the bulk of
-            the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-          </p>
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <div  class="input-group">
+                <img  href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
 
 
-          </div>
-        </div>
+                <div class="div-posting">
+                  <header >
+                    <div head-div>
+                      <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
+                      <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
+                    </div>
+                  </header>
 
-</section>
-</tr>
-</div>
-</section><section>
+                  <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
+                  <div>
 
-  <div class="card" >
-    <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-    <div class="card-body">
-      <div class="inner-card-body">
-        <div class="div-posting">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text Some quick example text to build on the card
-            title and make up the bulk of the card's content.n the card title and make up the bulk of
-            the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-          </p>
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <div  class="input-group">
+                    <p class="card-text">
+                    <p th:text="${data.description}"></p>
+
+                  </div>
 
 
-          </div>
-        </div>
+                  </p>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                  <form action="/postBid" method="POST">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <div  class="input-group">
+                      <input type="hidden" name="jobId" th:value="${data.id}" >
+                      <input name="pricePerHour" type="text" class="form-control" placeholder="Place A Bid!!" aria-label="Place A Bid!!"
+                             aria-describedby="button-addon2" />
+                      <input type="submit">
+                    </div>
+                  </form>
+                </div>
 
-</section>
-</tr>
+        </section>
+      </tr>
+    </div>
+  </div>
+
+
+</table>
 </div>
 </section>
 
