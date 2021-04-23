@@ -1,129 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
-  <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
 
-  <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet"/>
-  <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+
+
 </head>
 <body>
 <nav class="navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="images/ethos.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="images/ethos.png" alt="" width="50" height="24" class="d-inline-block align-text-top">
 
-    </a>
-  </div>
+        </a>
+    </div>
 </nav>
 <Header>
-  <div class="Amount-owed">
-    <div class="inner-Div">
-      <header>
-        Amount owed: <p class="p-amt-owe">$200.68</p>
-      </header>
-      <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>
+    <div class="Amount-owed">
+        <div class="inner-Div">
+            <header>
+                Amount owed: <p class="p-amt-owe">$200.68</p>
+            </header>
+            <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>
 
+        </div>
     </div>
-  </div>
 
-  <div class="profile">
-    <div class="prof-inner-Div">
-      <header><h2>Chase</h2></header>
-      <div class= "profile-img">
+    <div class="profile">
+        <div class="prof-inner-Div">
+            <header><h2>Chase</h2></header>
+            <div class="profile-img">
 
-      </div>
-      <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">
-      <button onClick="window.location.href='/postMaker'"  type="button-prof" id="butt-Prof" class="btn btn-primary">See All Posts!</button>
+            </div>
+            <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">
+            <!--      <button onClick="window.location.href='/postMaker'"  type="button-prof" id="butt-Prof" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Post A Job</button>-->
 
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Post A Job
+            </button>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Job Posting</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form action="/makePost" method="POST" id="formPoster">
+                                <div class="row g-3">
+                                    <div class="col-sm-7">
+                                        <label>Job Title: </label>
+                                        <input name="jobTitle" type="text" class="form-control" placeholder="Job Title"
+                                               aria-label="Job Title">
+                                    </div>
+                                    <div class="col-sm">
+                                        <label>Date To Complete: </label>
+                                        <input name="dateToComplete" type="date" class="form-control"
+                                               placeholder="Date To Complete" aria-label="Date To Complete">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label>Date To Complete: </label>
+                                        <input name="datePosted" type="date" class="form-control"
+                                               placeholder="Date Posted" aria-label="Date Posted">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label>Service Type: </label>
+                                        <select name="serviceType" class="form-select" id="inputGroupSelect02">
+                                            <option selected>Service Type</option>
+                                            <option>Legal-Auditing</option>
+                                            <option>Patent-Filing</option>
+                                            <option>Witness-Review</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <textarea name="description" class="form-control"
+                                                  aria-label="With textarea"></textarea>
+                                    </div>
+                                </div>
+                                <input type="submit">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 
 </Header>
-
 <div class="out-registration">
-  <div class="registration">
+    <div class="registration">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+            Edit Info
+        </button>
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Edit Account Settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
-    <form class="row g-3">
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
-      </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Law-Firm</label>
-        <input type="text" class="form-control" id="inputEmail4">
-      </div>
-      <div class="col-md-6">
-        <label for="inputText4" class="form-label">Business Phone number</label>
-        <input type="text" class="form-control" id="inputText4">
-      </div>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">LinkedIN</label>
-        <input type="text" class="form-control" id="inputEmail4">
-      </div>
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Law-Firm</label>
+                                <input type="text" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputText4" class="form-label">Business Phone number</label>
+                                <input type="text" class="form-control" id="inputText4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">LinkedIN</label>
+                                <input type="text" class="form-control" id="inputEmail4">
+                            </div>
 
+                            <div class="reg-butt">
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  </div>
-
-  <div class="reg-butt">
-    <button type="submit" class="btn btn-primary">Edit Info</button>
-  </div>
-  </form>
 </div>
-
 
 
 <tr>
 
-  <section class="post-section">
+    <section class="post-section">
 
 
-
-    </div>
-    <section>
-
-
-      <div class="card" >
+        </div>
+        <section>
 
 
-        <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-        <div class="card-body">
-          <div class="inner-card-body">
-            <div class="div-posting">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text Some quick example text to build on the card
-                title and make up the bulk of the card's content.n the card title and make up the bulk of
-                the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-                of the card's content.Some quick example text to build on the card title and make up the bulk
-              </p>
-            </div>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="inputPassword2" class="sr-only">Password</label>
-              <div  class="input-group">
+            <div class="card">
 
-              </div>
-            </div>
 
-    </section>
+                <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
+                <div class="card-body">
+                    <div class="inner-card-body">
+                        <div class="div-posting">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text Some quick example text to build on the card
+                                title and make up the bulk of the card's content.n the card title and make up the bulk
+                                of
+                                the card's content.Some quick example text to build on the card title and make up the
+                                bulk
+                                of the card's content.Some quick example text to build on the card title and make up the
+                                bulk
+                                of the card's content.Some quick example text to build on the card title and make up the
+                                bulk
+                                of the card's content.Some quick example text to build on the card title and make up the
+                                bulk
+                                of the card's content.Some quick example text to build on the card title and make up the
+                                bulk
+                            </p>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <div class="input-group">
+
+                            </div>
+                        </div>
+
+        </section>
 </tr>
 </div>
 
@@ -131,61 +212,73 @@
 
 <section>
 
-  <div class="card" >
-    <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-    <div class="card-body">
-      <div class="inner-card-body">
-        <div class="div-posting">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text Some quick example text to build on the card
-            title and make up the bulk of the card's content.n the card title and make up the bulk of
-            the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-          </p>
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <div  class="input-group">
+    <div class="card">
+        <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
+        <div class="card-body">
+            <div class="inner-card-body">
+                <div class="div-posting">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text Some quick example text to build on the card
+                        title and make up the bulk of the card's content.n the card title and make up the bulk of
+                        the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                    </p>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <div class="input-group">
 
 
-          </div>
-        </div>
-
-</section>
-</tr>
-</div>
-</section><section>
-
-  <div class="card" >
-    <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-    <div class="card-body">
-      <div class="inner-card-body">
-        <div class="div-posting">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text Some quick example text to build on the card
-            title and make up the bulk of the card's content.n the card title and make up the bulk of
-            the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-            of the card's content.Some quick example text to build on the card title and make up the bulk
-          </p>
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <div  class="input-group">
-
-
-          </div>
-        </div>
+                    </div>
+                </div>
 
 </section>
 </tr>
 </div>
 </section>
+<section>
+
+    <div class="card">
+        <img class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
+        <div class="card-body">
+            <div class="inner-card-body">
+                <div class="div-posting">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text Some quick example text to build on the card
+                        title and make up the bulk of the card's content.n the card title and make up the bulk of
+                        the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                        of the card's content.Some quick example text to build on the card title and make up the bulk
+                    </p>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <div class="input-group">
+
+
+                    </div>
+                </div>
+
+</section>
+</tr>
+</div>
+</section>
+
+<script type="text/javascript" src="/js/landing.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
