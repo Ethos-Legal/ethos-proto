@@ -46,7 +46,7 @@ public class ClientPosterController {
         app_user.getJobPost().add(jobPost);
         app_user_repository.save(app_user);
         System.out.println(dateToComplete);
-        return new RedirectView("/jobs");
+        return new RedirectView("/JobPosterProfile");
     }
 
     @PostMapping("/postBid")

@@ -6,13 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-  <link href="/css/JobSeeker.css" type="text/css" rel="stylesheet" />
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 
 
@@ -20,8 +21,10 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="navID" class="navbar navbar-expand-lg navbar-dark ">
+
   <div class="container-fluid">
+
     <a class="navbar-brand" href="#">Ethos-Legal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,36 +44,34 @@
         <li class="nav-item">
           <button name="Logout" onclick="window.location.href='/logout'" class="btn btn-outline-light">Logout</button>
         </li>
-        <li class="nav-item">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-            Button with data-bs-target
-          </button>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">-->
+<!--            Button with data-bs-target-->
+<!--          </button>-->
+<!--        </li>-->
       </ul>
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
+
     </div>
   </div>
 </nav>
   <Header>
     <div class="Amount-owed">
       <div class="inner-Div">
-        <header>
-          Amount owed: <p class="p-amt-owe">$200.68</p>
-        </header>
-        <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>
-
-      </div>
+<!--        <header>-->
+<!--          Amount owed: <p class="p-amt-owe">$200.68</p>-->
+<!--        </header>-->
+<!--        <button type="button" id="butt" class="btn btn-warning">Pay Debt</button>-->
+<!--        <header>-->
+<!--          <h2>Chase</h2>-->
+<!--        </header>-->
+<!--        <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">-->
+<!--      </div>-->
 
     </div>
 
     <div class="profile">
       <div class="prof-inner-Div">
-        <header>
-          <h2>Chase</h2>
-        </header>
-        <img class="card-img-prof" src="images/chase-profile.jpg" alt="Card image cap" width="140px" height="140px">
+
 
 
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -96,7 +97,7 @@
                         aria-label="Date To Complete">
                     </div>
                     <div class="col-sm-5">
-                      <label>Date To Complete: </label>
+                      <label>Date Posted: </label>
                       <input name="datePosted" type="date" class="form-control" placeholder="Date Posted"
                         aria-label="Date Posted">
                     </div>
@@ -176,6 +177,7 @@
 <!--        </div>-->
       </div>
     </div>
+    <h2>Active Jobs</h2>
   </div>
 
 
@@ -183,135 +185,148 @@
 
 
 
-<h2>Active Jobs</h2>
+
 <div>
-<table style="width:100%">
-    <div th:each="data : ${activeJobs}">
-        <tr>
-            <section class="post-section">
-                <div class="card" style="width: 119rem; height: 300px">
-                    <div class="card-body">
-                        <div class="inner-card-body">
-                            <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"
-                                 height="200px">
-                            <div class="div-posting">
-                                <header>
-                                    <div head-div>
-                                        <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
-                                        <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
-                                    </div>
-                                </header>
-                                <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
-                                <div>
-                                    <p class="card-text"></p>
-                                    <p th:text="${data.description}"></p>
-                                </div>
-                              <div class ="bidClass">
-                                <p th:text="${data.jobSeeker}"></p>
-<!--                                <p th:text="${data.pricePerHour}"></p>-->
-                              </div>
-                            </div>
-                          <div>
-                            <div th:each="note : ${data.notes}">
-<!--                              <p th:text="${note.timeStamp}"></p>-->
-                              <p th:text="${note.name}"></p>
-                              <p th:text="${note.note}"></p>
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2">
-                              <form action="/addNote" method="POST">
-                                <div class="input-group">
-                                  <input type="hidden" name="jobId" th:value="${data.id}">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Add a Note</span>
-                                  </div>
-                                  <textarea class="form-control" aria-label="With textarea" name="noteText"></textarea>
-                                  <input type="submit">
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-            </section>
-        </tr>
-    </div>
-</table>
+<!--<table style="width:100%">-->
+<!--    <div th:each="data : ${activeJobs}">-->
+<!--        <tr>-->
+<!--            <section class="post-section">-->
+<!--                <div class="card" style="width: 119rem; height: 200px">-->
+<!--                    <div class="card-body">-->
+<!--                        <div class="inner-card-body">-->
+<!--                            <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"-->
+<!--                                 height="200px">-->
+<!--                            <div class="div-posting">-->
+<!--                                <header>-->
+<!--                                    <div head-div>-->
+<!--                                        <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>-->
+<!--                                        <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>-->
+<!--                                    </div>-->
+<!--                                </header>-->
+<!--                                <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>-->
+<!--                                <div>-->
+<!--                                    <p class="card-text"></p>-->
+<!--                                    <p th:text="${data.description}"></p>-->
+<!--                                </div>-->
+<!--                              <div class ="bidClass">-->
+<!--                                <p th:text="${data.jobSeeker}"></p>-->
+<!--&lt;!&ndash;                                <p th:text="${data.pricePerHour}"></p>&ndash;&gt;-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                          <div>-->
+<!--&lt;!&ndash;                            <div th:each="note : ${data.notes}">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                              <p th:text="${note.timeStamp}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                              <p th:text="${note.name}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                              <p th:text="${note.note}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                            <div class="form-group mx-sm-3 mb-2">-->
+<!--&lt;!&ndash;                              <form action="/addNote" method="POST">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <input type="hidden" name="jobId" th:value="${data.id}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <div class="input-group-prepend">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span class="input-group-text">Add a Note</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <textarea class="form-control" aria-label="With textarea" name="noteText"></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <input type="submit">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                              </form>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--            </section>-->
+<!--        </tr>-->
+<!--    </div>-->
+<!--</table>-->
+
 </div>
 
-  <h2>Outstanding Bids</h2>
+
 <div>
-  <table style="width:100%">
 
-    <div th:each="data : ${outstandingJobs}">
-
-      <tr>
-        <section class="post-section">
-
-
-          <div class="card" style="width: 119rem; height: 300px">
-            <div class="card-body">
-              <div class="inner-card-body">
-
-                <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">
-
-
-                <div class="div-posting">
-                  <header>
-                    <div head-div>
-                      <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>
-                      <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>
-                    </div>
-                  </header>
-                  <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>
-                  <div>
-                    <p class="card-text" th:text="${data.description}"></p>
-                  </div>
-                </div>
-                <div class="buttons">
-
-                  <p id="butt-p">
-
-                    <button id="butt-1-" class="btn btn-lg btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">See Bids</button>
-
-                  </p>
-                  <div class="row">
-                    <div class="col">
-                      <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <form action="/hire" method="POST">
-                          <div class="form-group" th:each="bid : ${data.bid}">
-                            <div class ="bidClass">
-                              <p th:text="${bid.jobSeeker}"></p>
-                              <p th:text="${bid.datePosted}"></p>
-                              <p th:text="${bid.pricePerHour}"></p>
-                              <input type="hidden" name="jobId" th:value="${data.id}">
-                              <input type="hidden" name="bidSeeker" th:value="${bid.jobSeeker}">
-                              <input type="hidden" name="bidPrice" th:value="${bid.pricePerHour}">
-                              <button type="submit" class="btn btn-primary" name="hire">Hire!</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card card-body">
-                          <div id="signInForm" >
-                            <form id="landingSignInJobSeeker">
-                              <label for="signInEmail">Email:</label>
-                              <input type="text" id="signInEmail">
-                              <label for="signInPassword">Password:</label>
-                              <input type="text" id="signInPassword">
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        </section>
-      </tr>
+  <div th:each="data : ${activeJobs}">
+  <div class="row">
+    <div id="id-title" class="col-9">.col-9</div>
+    <div id="pic-div" class="col-4"><img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap"/>
     </div>
+    <div id="div-col" class="col-8">.col-6 Subsequent columns continue along the new line.</div>
+  </div>
+  </div>
+<!--  <table style="width:100%">-->
+
+<!--    <div th:each="data : ${outstandingJobs}">-->
+
+<!--      <tr>-->
+<!--        <section class="post-section">-->
 
 
-  </table>
+<!--          <div class="card" style="width: 119rem; height: 300px">-->
+<!--            <div class="card-body">-->
+<!--              <div class="inner-card-body">-->
+
+<!--                <img href="/home" class="card-img-top" src="images/lawFirmLogo.jpg" alt="Card image cap" height="200px">-->
+
+
+<!--                <div class="div-posting">-->
+<!--                  <header>-->
+<!--                    <div class="head-div">-->
+<!--                      <header>-->
+<!--                        <div class="buttons">-->
+
+<!--                          <p id="butt-p">-->
+
+<!--                            <button id="butt-1-" class="btn btn-lg btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">See Bids</button>-->
+
+<!--                          </p>-->
+<!--                          <div class="row">-->
+<!--                            <div class="col">-->
+<!--                              <div class="collapse multi-collapse" id="multiCollapseExample2">-->
+<!--                                <form action="/hire" method="POST">-->
+<!--                                  <div class="form-group" th:each="bid : ${data.bid}">-->
+<!--                                    <div class ="bidClass">-->
+<!--                                      <p th:text="${bid.jobSeeker}"></p>-->
+<!--                                      <p th:text="${bid.datePosted}"></p>-->
+<!--                                      <p th:text="${bid.pricePerHour}"></p>-->
+<!--                                      <input type="hidden" name="jobId" th:value="${data.id}">-->
+<!--                                      <input type="hidden" name="bidSeeker" th:value="${bid.jobSeeker}">-->
+<!--                                      <input type="hidden" name="bidPrice" th:value="${bid.pricePerHour}">-->
+<!--                                      <button type="submit" class="btn btn-primary" name="hire">Hire!</button>-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </form>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                      </header>-->
+<!--                      <h5 class="card-title" th:text="${data.jobTitle}">Card title</h5>-->
+<!--                      <p id="date-type" th:text=" 'DateToComplete: ' + ${data.dateToComplete}"></p>-->
+<!--                    </div>-->
+<!--                  </header>-->
+<!--                  <p id="serv-type" th:text=" ${data.datePosted} + ' ' + ${data.serviceType} "></p>-->
+<!--                  <div>-->
+<!--                    <p class="card-text" th:text="${data.description}"></p>-->
+<!--                  </div>-->
+<!--                </div>-->
+
+<!--                    <div class="col">-->
+<!--                      <div class="collapse multi-collapse" id="multiCollapseExample2">-->
+<!--                        <div class="card card-body">-->
+<!--                          <div id="signInForm" >-->
+<!--                            <form id="landingSignInJobSeeker">-->
+<!--                              <label for="signInEmail">Email:</label>-->
+<!--                              <input type="text" id="signInEmail">-->
+<!--                              <label for="signInPassword">Password:</label>-->
+<!--                              <input type="text" id="signInPassword">-->
+<!--                            </form>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--        </section>-->
+<!--      </tr>-->
+<!--    </div>-->
+
+
+<!--  </table>-->
   </div>
   </section>
 

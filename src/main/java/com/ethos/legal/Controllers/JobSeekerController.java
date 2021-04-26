@@ -27,9 +27,9 @@ public class JobSeekerController {
     @GetMapping("/jobSeeker")
     public String jobPostBoard(Principal principal, Model m) {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
-        if(!appUser.isJobSeeker()) {
-            return "home.html";
-        }
+//        if(!appUser.isJobSeeker()) {
+//            return "home.html";
+//        }
         m.addAttribute("activeJobs", sortActiveJobs(principal));
         m.addAttribute("outstandingBids", sortBids(principal));
         m.addAttribute("principal", principal);

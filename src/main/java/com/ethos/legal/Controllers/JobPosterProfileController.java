@@ -30,9 +30,9 @@ public class JobPosterProfileController {
     @GetMapping("/JobPosterProfile")
     public String jobPosterProfile(Principal principal, Model m) {
         App_User appUser = app_user_repository.findByEmail(principal.getName());
-        if(!appUser.isClientPoster()) {
-            return "home.html";
-        }
+//        if(!appUser.isClientPoster()) {
+//            return "home.html";
+//        }
         m.addAttribute("activeJobs", sortActiveJobs(principal));
         m.addAttribute("outstandingJobs", sortOutstandingJobs(principal));
         m.addAttribute("principal", principal);

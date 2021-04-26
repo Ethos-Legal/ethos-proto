@@ -1,7 +1,7 @@
 
 
 .out-registration{
-    background-color: rgba(207, 206, 206, 0.9);
+
     width: 750px;
     margin-left: 30%;
     margin-top: -10%;
@@ -36,11 +36,11 @@
     margin-left: 80%;
     margin-top: 2%;
     width: 280px;
-    height: 150px;
-    background-color: rgb(195, 195, 195);
+    height: 250px;
+
 }
 .inner-Div{
-    margin-left: 12%;
+    margin-left: 26%;
     padding-top: 15%;
 }
 #butt{
@@ -58,11 +58,12 @@
 
     width: 80%;
     display: inline-block;
+    height: 200px;
 
 }
 .card-img-top{
-    width: 300px;
-    margin-top: -6%;
+    width: 200px;
+    margin: 6px;
 }
 
 .card{
@@ -83,7 +84,7 @@
 
     width: 15%;
     height: 0%;
-    margin-top: -9%;
+
 }
 .card-img-prof{
     margin-bottom: 10%;
@@ -91,7 +92,7 @@
 
 .prof-inner-Div{
     margin-left: 12%;
-    padding-top: 15%;
+
 }
 
 .profile{
@@ -105,10 +106,43 @@
 }
 
 p {
-    margin-left: 20px;
-    margin-right: 20px;
+
 }
 
 .button-sub{
     width:13%;
 }
+
+.div-posting{
+    margin-left:450px;
+    margin-top:-8%;
+
+}
+.buttons{
+   margin-left:800px;
+
+}
+.head-div{
+    padding-top: -15%;
+}
+.tr-sizer{
+    height: 600px;
+}
+#div-col{
+
+    width:60%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#pic-div{
+    width: 26%;
+
+}
+
+#navID{
+background-color: #263238;
+}
+
+
+#
